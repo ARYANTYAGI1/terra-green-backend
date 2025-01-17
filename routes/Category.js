@@ -18,15 +18,19 @@ const { validateCategory } = require('../helpers/validations');
  *             properties:
  *               name:
  *                 type: string
- *                 description: The name of the category
+ *                 description: The name of the category (required)
  *               description:
  *                 type: string
- *                 description: A description of the category
+ *                 description: A description of the category (optional)
+ *             required:
+ *               - name  # name is required, description is optional
  *     responses:
  *       200:
  *         description: Category added successfully
  *       400:
- *         description: Validation errors
+ *         description: Validation errors (e.g. missing 'name' or invalid data)
+ *       500:
+ *         description: Server error
  */
 router.post('/add', validateCategory, categoryController.addCategory);
 

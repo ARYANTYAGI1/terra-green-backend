@@ -12,5 +12,24 @@
     "multer-storage-cloudinary": "^4.0.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
-  }
+  },
+  "name": "terra-green-backend",
+  "version": "1.0.0",
+  "description": "Terra Green is a full-stack e-commerce platform for managing and selling organic agricultural products, with features for product management, category organization, and customer inquiries.",
+  "main": "server.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ARYANTYAGI1/terra-green-backend.git"
+  },
+  "author": "Aryan Tyagi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ARYANTYAGI1/terra-green-backend/issues"
+  },
+  "homepage": "https://github.com/ARYANTYAGI1/terra-green-backend#readme"
 }
