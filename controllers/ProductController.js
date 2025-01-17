@@ -1,4 +1,4 @@
-const Product = require('../models/product'); // Product Model
+const Product = require('../models/Product'); // Product Model
 const { validationResult } = require('express-validator'); // For validation
 const { cloudinary } = require('../config/cloudinary'); // Cloudinary config
 

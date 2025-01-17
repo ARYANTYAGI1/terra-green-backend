@@ -1,4 +1,4 @@
-const ContactForm = require('../models/Contact'); // Contact Form model
+const ContactForm = require('../models/ContactForm'); // Contact Form model
 const { validationResult } = require('express-validator');
 
 // Submit a contact us inquiry

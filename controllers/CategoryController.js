@@ -1,4 +1,4 @@
-const Category = require('../models/category'); // Category model
+const Category = require('../models/Category'); // Category model
 const { validationResult } = require('express-validator');
 
 // Add a new category
