@@ -5,6 +5,7 @@ const mongoose = require('./config/db');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const helmet = require('helmet');
+const path = require('path');
 const productRoutes = require('./routes/Product');
 const categoryRoutes = require('./routes/Category');
 const contactUsRoutes = require('./routes/ContactUs');
@@ -20,6 +21,14 @@ app.use(cors({
 }));
 app.use(helmet());
 app.use(express.json());
+
+// Serve static files (e.g., index.html)
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Serve index.html on the root route
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // Swagger setup
 const swaggerOptions = {
