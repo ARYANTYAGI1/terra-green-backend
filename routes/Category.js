@@ -15,6 +15,8 @@ const { validateCategory } = require('../helpers/validations');
  *         application/json:
  *           schema:
  *             type: object
+ *             required:
+ *               - name
  *             properties:
  *               name:
  *                 type: string
@@ -22,16 +24,35 @@ const { validateCategory } = require('../helpers/validations');
  *               description:
  *                 type: string
  *                 description: A description of the category (optional)
- *             required:
- *               - name  # name is required, description is optional
  *     responses:
  *       200:
  *         description: Category added successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Category added successfully
+ *                 category:
+ *                   type: object
+ *                   properties:
+ *                     _id:
+ *                       type: string
+ *                       example: 63d2f4b23d1c2e1234567890
+ *                     name:
+ *                       type: string
+ *                       example: Fertilizers
+ *                     description:
+ *                       type: string
+ *                       example: Organic fertilizers for crops
  *       400:
  *         description: Validation errors (e.g. missing 'name' or invalid data)
  *       500:
  *         description: Server error
  */
+
 router.post('/add', validateCategory, categoryController.addCategory);
 
 /**

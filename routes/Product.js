@@ -19,26 +19,66 @@ const upload = multer({ storage });
  *         multipart/form-data:
  *           schema:
  *             type: object
+ *             required:
+ *               - name
+ *               - category
+ *               - description
+ *               - composition
+ *               - targetCrops
+ *               - dosage
+ *               - image
+ *               - applicationMethods
+ *               - features
+ *               - benefits
+ *               - precautions
  *             properties:
  *               name:
  *                 type: string
  *                 description: The name of the product
+ *               category:
+ *                 type: string
+ *                 description: The category of the product (e.g., "Insecticides")
  *               description:
  *                 type: string
  *                 description: A description of the product
- *               price:
- *                 type: number
- *                 format: float
- *                 description: The price of the product
+ *               composition:
+ *                 type: string
+ *                 description: The composition of the product
+ *               targetCrops:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                 description: List of target crops (e.g., "Wheat, Rice, Cotton")
+ *               dosage:
+ *                 type: string
+ *                 description: Dosage instructions
  *               image:
  *                 type: string
  *                 format: binary
  *                 description: The image file for the product
+ *               applicationMethods:
+ *                 type: string
+ *                 description: Instructions for application
+ *               features:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                 description: List of product features
+ *               benefits:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                 description: List of product benefits
+ *               precautions:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                 description: List of precautions
  *     responses:
  *       200:
  *         description: Product added successfully
  *       400:
- *         description: Validation errors or missing image
+ *         description: Validation errors or missing fields
  */
 router.post('/add', upload.single('image'), validateProduct, productController.addProduct);
 

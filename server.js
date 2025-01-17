@@ -20,6 +20,7 @@ app.use(express.json());
 // Swagger setup
 const swaggerOptions = {
   swaggerDefinition: {
+    openapi: '3.0.0', // Use OpenAPI version 3
     info: {
       title: 'Product API',
       version: '1.0.0',
@@ -28,10 +29,14 @@ const swaggerOptions = {
         name: 'Aryan Tyagi',
         email: 'aryantyagi296@gmail.com',
       },
-      servers: ['http://localhost:5000'],
     },
+    servers: [
+      {
+        url: 'http://localhost:5000',
+      },
+    ],
   },
-  apis: ['./routes/*.js'],
+  apis: ['./routes/*.js'], // Path to the API docs
 };
 
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
