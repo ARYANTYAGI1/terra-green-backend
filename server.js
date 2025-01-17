@@ -22,11 +22,9 @@ app.use(cors({
 app.use(helmet());
 app.use(express.json());
 
-// Serve static files (e.g., index.html)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve index.html on the root route
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
